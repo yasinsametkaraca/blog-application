@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-  <p>Blog detail: {{ id }}</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} Blog Detail {% endblock %}
+
+{% block content %}
+<h1>Blog Details: {{id}}</h1>
+{% endblock %}
