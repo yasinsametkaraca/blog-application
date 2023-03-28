@@ -1,14 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} | Blog App</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrapt.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css_files %} {% endblock %}
 </head>
 <body>
-    <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Blogs</a></li>
-    </ul>
-    {% block content %} {% endblock %}
+{% include 'partials/_navbar.html' %}
+
+{% block content %} {% endblock %}
+<script src="{% static 'js/bootstrapt.min.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+{% block js_files %} {% endblock %}
 </body>
 </html>
