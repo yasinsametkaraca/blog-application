@@ -11,11 +11,15 @@
         <div class="col-9">
             <h1>All Blogs</h1>
             <hr>
-            {% for blog in blogs %}
-                {% if blog.is_active %}
-                  {% include 'blog/partials/_blog.html' %}
-                {% endif %}
-            {% endfor %}
+            {% if blogs|length == 0 %}
+                <div class="alert alert-warning">No blogs found</div>
+            {% else %}
+                 {% for blog in blogs %}
+                    {% if blog.is_active %}
+                      {% include 'blog/partials/_blog.html' %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 </div>

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +124,8 @@ STATIC_URL = '/static/'  # uygulama seviyesinde
 STATICFILES_DIRS = [        # proje seviyesinde
     BASE_DIR / "static",
 ]
+MEDIA_ROOT = BASE_DIR / "uploads"  # resimlerin kaydedileceği klasör
+MEDIA_URL = "/images/"  # resimlerin görüntülenmek istendiğindeki url si
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
