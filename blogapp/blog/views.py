@@ -2,42 +2,6 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from blog.models import Blog
 
-data = {
-    "blogs": [
-        {
-            "id": 1,
-            "title": "ysk",
-            "image": "1.png",
-            "is_active": True,
-            "is_home": True,
-            "description": "good"
-        },
-        {
-            "id": 2,
-            "title": "ysk",
-            "image": "1.png",
-            "is_active": True,
-            "is_home": False,
-            "description": "good"
-        },
-        {
-            "id": 3,
-            "title": "ysk",
-            "image": "1.png",
-            "is_active": False,
-            "is_home": True,
-            "description": "good"
-        },
-        {
-            "id": 4,
-            "title": "ysk",
-            "image": "1.png",
-            "is_active": True,
-            "is_home": True,
-            "description": "good"
-        },
-    ]
-}
 
 # http requestlerimiz.
 def index(request):

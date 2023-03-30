@@ -1,3 +1,13 @@
 from django.contrib import admin
+from .models import Blog, Category
 
-# Register your models here.
+
+class BlogAdmin(
+    admin.ModelAdmin):  # admin yetkilerine sahip özel gösterimler için yazdık. Yani admin sayfasını blogların kontrolünde özelleştirmek yazdık.
+    list_display = ("title", "is_active", "is_home")  # listede gösterilirken bu attributelar gösterilsin dedik.
+    list_editable = ("is_active", "is_home")
+    search_fields = ("title", "description")  # admin panele arama kısmı ekledik.
+
+
+admin.site.register(Blog, BlogAdmin)  # admin sayfasına dahil ediyoruz.
+admin.site.register(Category)
