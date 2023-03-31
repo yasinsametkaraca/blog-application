@@ -125,6 +125,9 @@ STATIC_URL = '/static/'  # uygulama seviyesinde
 STATICFILES_DIRS = [        # proje seviyesinde
     BASE_DIR / "static",
 ]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"  # statik dosyaların toplanacağı klasör (deployment seviyesinde)
+
 MEDIA_ROOT = BASE_DIR / "uploads"  # resimlerin kaydedileceği klasör
 MEDIA_URL = "/images/"  # resimlerin görüntülenmek istendiğindeki url si
 

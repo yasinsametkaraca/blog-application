@@ -21,5 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("blog.urls")),
-    path('account/', include("account.urls")), # account uygulamasındaki urls.py dosyasını buraya dahil ettik.
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # media dosyalarını göstermek için ekledik. http://127.0.0.1:8000/images/blogs/2.jpg gibi.
+    path('account/', include("account.urls")),  # account uygulamasındaki urls.py dosyasını buraya dahil ettik.
+]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # media dosyalarını göstermek için ekledik. http://127.0.0.1:8000/images/blogs/2.jpg gibi.
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # static dosyalarını göstermek için ekledik.
