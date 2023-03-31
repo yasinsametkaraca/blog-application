@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'account/css/style.css' %}"> {% endblock %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="container mt-3">
+        <div class="col">
+            <h1>Login</h1>
+            <hr>
+            <form method="POST">
+                {% csrf_token %} <!-- csrf_token" is used to prevent cross site request forgery. Sayfayı çağıran kişiyle formu gönderen kişinin aynı mı diye kontrolü için.-->
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input id="username" type="text" class="form-control" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="password" class="form-control" name="password">
+                </div>
+                <div class="mb-3"></div>
+                <input type="submit" value="Login" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'account/js/script.js' %}"></script>
+{% endblock %}

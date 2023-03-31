@@ -22,7 +22,8 @@ class Blog(models.Model):
     is_active = models.BooleanField(default=False)
     is_home = models.BooleanField(default=False)
     slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)  # slug alanı oluşturduk. Bu alanı url de kullanacağız.
-    category = models.ForeignKey(Category, default=1, on_delete=models.CASCADE)  # category alanı oluşturduk. Bu alanı kategorileri filtrelemek için kullanacağız.
+    categories = models.ManyToManyField(Category, blank=True)  # Many to many için category alanı oluşturduk.
+    # category = models.ForeignKey(Category, default=1, on_delete=models.CASCADE)  # One to many için category alanı oluşturduk. Bu alanı kategorileri filtrelemek için kullanacağız.
 
     def __str__(self):
         return f"{self.title}"

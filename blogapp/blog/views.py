@@ -30,7 +30,8 @@ def blog_details(request, slug):
 
 def category_blogs(request, slug):  # slug ile kategoriye göre blogları filtreledik.
     context = {
-        "blogs": Blog.objects.filter(is_active=True, category__slug=slug,),  # category__slug=slug ile category slug ile eşleşenleri getir dedik.
+        # "blogs": Blog.objects.filter(is_active=True, category__slug=slug,),  # category__slug=slug ile category slug ile eşleşenleri getir dedik. (ontomany de böyle kullanılır.)
+        "blogs": Category.objects.get(slug=slug).blog_set.filter(is_active=True),  # blog_set ile o kategoriye ait olan blogları getirdik. blog_set diyerek category tablosunda olmayan blok attribute a ulaştık. Çoka çok ilişkide olan diğer tabloya ulaşabiliyoruz.
         "categories": Category.objects.all(),
         "selected_category": slug  # selected_category ile seçilen kategorinin adını gönderdik.
     }
